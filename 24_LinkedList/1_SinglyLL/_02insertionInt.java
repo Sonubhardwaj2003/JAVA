@@ -1,4 +1,4 @@
-public class _02basicsIntOperation {
+public class _02insertionInt {
     Node head;
     class Node{
         int value;
@@ -58,7 +58,7 @@ public class _02basicsIntOperation {
 
 
     public static void main(String[] args) {
-        _02basicsIntOperation list=new _02basicsIntOperation();
+        _02insertionInt list=new _02insertionInt();
         
         list.printList();
 
