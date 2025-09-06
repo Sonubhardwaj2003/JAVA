@@ -1,0 +1,112 @@
+..>>>>Que1>>diffrenetiate b/w error and exception with example.
+
+Errors and exceptions are both issues that arise during the execution of a program, but they are quite different in nature.
+
+Errors....
+- Errors are serious issues that occur when something goes fundamentally wrong, often due to underlying system problems or improper usage of resources.
+- They cannot be handled by the program and usually lead to termination.
+- Examples include:
+  - OutOfMemoryError (when the JVM runs out of memory)
+  - StackOverflowError (when recursion is too deep)
+  - AssertionError (when an assertion fails)
+
+class ErrorExample {
+    public static void main(String[] args) {
+        // This causes StackOverflowError due to infinite recursion
+        main(args);
+    }
+}
+
+Exception....
+- Exceptions are less serve and occur when unexpected conditions arise.
+- They can be handled using try-catch blocks, allowing the program to continue execution.
+- Examples include:
+  - NullPointerException (trying to access a null object)
+  - ArrayIndexOutOfBoundsException (accessing an invalid array index)
+  - IOException (issues with file handling)
+
+Example..
+class ExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int num = 5 / 0;  // ArithmeticException: Division by zero
+        } catch (ArithmeticException e) {
+            System.out.println("Handled exception: " + e);
+        }
+    }
+}
+
+
+
+
+..>>que2>>>describe the control flow in try catch finally block ,what happen if exception is thrown in try and catch block both.
+
+try block:
+This is where you place the code that may throw an exception.
+If an exception occurs, the rest of the code in the try block is skipped, and control is 
+transferred to the corresponding catch block (if one is present).
+If no exception occurs, the catch block is skipped, and control moves to the finally block (if it exists).
+
+catch block:
+If an exception occurs in the try block, the program will jump to the catch block.
+The catch block is used to handle specific exceptions (e.g., catch (IOException e)).
+If the exception matches the type declared in the catch block, the exception is handled inside it.
+After handling the exception, control moves to the finally block (if it exists).
+
+finally block:
+This block will always execute, whether an exception occurred or not.
+It is typically used for cleanup actions, like closing files, releasing resources, or disconnecting from a database.
+The finally block runs regardless of whether an exception was thrown or not, and it will 
+run even if an exception is caught and handled in the catch block.
+If a return statement is encountered inside the try or catch blocks, the finally block will still 
+execute before the method actually returns.
+
+If an exception is thrown in the try block:
+The control will jump to the corresponding catch block (if the exception is of a type that the catch block can handle).
+If the catch block doesn't handle the exception properly (or throws another exception), then the program will attempt to handle 
+it again in the next available catch or propagate it further.
+
+If an exception is thrown in the catch block:
+If an exception occurs in the catch block while handling another exception, the exception from the catch block will propagate. 
+The finally block will still execute before the exception propagates out of the catch block.
+This can lead to exception chaining, where one exception is caught and then another exception is thrown from the catch block.
+
+
+
+
+.>>>que3>>>what are user difined exception and how they are used in java
+
+In Java, exceptions are used to handle errors and exceptional conditions in programs. While Java provides many built-in exceptions 
+(like NullPointerException, ArithmeticException, etc.), sometimes you might need to define your own exception to represent 
+specific error conditions in your application. These are called User-Defined Exceptions.
+
+A User-Defined Exception is an exception that is created by the programmer to handle specific situations in the code. 
+Java allows you to create custom exceptions by extending the built-in Exception class (or its subclasses).
+
+Steps to Create a User-Defined Exception:
+Create the exception class: Extend Exception or RuntimeException.
+Throw the exception: Use the throw keyword to explicitly throw your custom exception when a specific condition is met.
+Catch the exception: Use try-catch blocks to catch and handle the custom exception.
+
+
+
+
+.>>>que4>>Write a program that handle both checked (i/o) unchecked (airthematic) exception in the same try catch block.
+
+import java.io.*;
+public class MixedExceptionHandling {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+            FileReader file = new FileReader("nonexistent_file.txt");
+            BufferedReader fileReader = new BufferedReader(file);
+            String line = fileReader.readLine();
+            System.out.println(line);
+        } catch (IOException | ArithmeticException e) {
+            System.out.println("Exception caught: " + e.getClass().getSimpleName());
+            System.out.println("Error Message: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed!");
+        }
+    }
+}
