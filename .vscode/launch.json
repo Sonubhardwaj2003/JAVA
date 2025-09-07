@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "_04reverseLL",
+            "request": "launch",
+            "mainClass": "_04reverseLL",
+            "projectName": "JAVA_937e8c7b"
+        },
+        {
+            "type": "java",
             "name": "_01basicsOperations",
             "request": "launch",
             "mainClass": "SinglyLL._01basicsOperations",
