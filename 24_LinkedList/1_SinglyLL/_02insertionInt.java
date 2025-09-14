@@ -2,10 +2,12 @@ public class _02insertionInt {
     Node head;
     class Node{
         int value;
+        int Loc;
         Node next;
 
         Node(int value){
             this.value=value;
+            this.Loc=Loc;
             this.next=null;
         }
     }
@@ -40,6 +42,28 @@ public class _02insertionInt {
         currNode.next=newNode;
     }
 
+    //add to Location
+    public void addLoc(int value ,int Loc){
+        Node newNode=new Node(value);
+
+        if(head==null){
+            head=newNode;
+            return;
+        }
+
+        Node currNode=head;
+        Node temp=null;
+        int i=0;
+        while(i<Loc){
+            temp=currNode;
+            currNode=currNode.next;
+            i++;
+        }
+
+        newNode.next=currNode;
+        temp.next=newNode;
+    }
+
     //to print
     public void printList(){
         if(head==null){
@@ -68,6 +92,7 @@ public class _02insertionInt {
         list.addFirst(5);
         list.addLast(15);
         list.addLast(20);
+        list.addLoc(12,3);
         list.printList();
 
     }
