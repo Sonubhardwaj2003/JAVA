@@ -1,7 +1,7 @@
 public class floorOfNum {
     public static void main(String[] args) {
         int arr[]={1,2,5,12,23,29,33,45,50};
-        int target=-1;
+        int target=15;
         System.out.println(FloorOfnum(arr, target));
     }
 
@@ -18,8 +18,8 @@ public class floorOfNum {
         while(start<=end){
             int mid=start+(end-start)/2;
             if(target==arr[mid]){
-                // return arr[mid];
-                return mid;
+                return arr[mid];
+                // return mid;
             }
             else if(target>arr[mid]){
                 start=mid+1;
@@ -28,7 +28,7 @@ public class floorOfNum {
             }
         }
 
-        // return arr[end];   //return value
-        return end;    // return index
+        return arr[end];   //return value
+        // return end;    // return index
     }
 }

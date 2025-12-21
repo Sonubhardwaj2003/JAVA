@@ -18,8 +18,8 @@ public class cellingofnum {
         while(start<=end){
             int mid=start+(end-start)/2;
             if(target==arr[mid]){
-                // return arr[mid];
-                return mid;
+                return arr[mid];
+                // return mid;
             }
             else if(target>arr[mid]){
                 start=mid+1;
@@ -28,7 +28,7 @@ public class cellingofnum {
             }
         }
 
-        // return arr[start];  //return value
-        return start;  //returning the index
+        return arr[start];  //return value
+        // return start;  //returning the index
     }
 }
