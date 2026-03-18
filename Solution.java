@@ -1,16 +1,10 @@
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.util.*;
+import javafx.util.Pair;
 
-class Solution{
+class Solution {
     public static void main(String[] args) {
-        try{
-            InetAddress address=InetAddress.getLocalHost();
-            String dottedQuad=address.getHostAddress();
-            System.out.println(address);
-            System.out.println(dottedQuad);
-        }
-        catch(UnknownHostException ex){
-            System.out.println("Could not find this computer's address.");
-        }
+        Pair<Integer, Integer> p = new Pair<>(121, 50);
+        System.out.println("Key: " + p.getKey());
+        System.out.println("Value: " + p.getValue());
     }
 }
