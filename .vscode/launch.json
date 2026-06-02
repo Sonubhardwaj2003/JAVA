@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "dictonary",
+            "request": "launch",
+            "mainClass": "dictonary",
+            "projectName": "JAVA_937e8c7b"
+        },
+        {
+            "type": "java",
+            "name": "dictonary",
+            "request": "launch",
+            "mainClass": "hwi.dictonary",
+            "projectName": "JAVA_937e8c7b"
+        },
+        {
+            "type": "java",
             "name": "_04reverseLL",
             "request": "launch",
             "mainClass": "_04reverseLL",
